@@ -27,8 +27,7 @@ public class Main {
                 .instructions(new ArrayList(Arrays.asList("Toast bread", "Chop advocado", "Place advocado on toast")))
                 .build();
 
-        Book book = Book.builder().id(1).authorName("Hannah").title("Book the First").recipes(new ArrayList()).build();
-        book.addRecipe(recipe);
+        Book book = Book.builder().id(1).authorName("Hannah").title("Book the First").recipe(recipe).build();
 
         System.out.println(book.getRecipes().get(0).getRecipe());
     }

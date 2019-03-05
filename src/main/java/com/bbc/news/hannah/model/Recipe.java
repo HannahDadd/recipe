@@ -1,20 +1,24 @@
 package com.bbc.news.hannah.model;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Builder;
+import lombok.Singular;
+import lombok.NonNull;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Builder
+@Getter
 public class Recipe {
 
-    private @NonNull @Getter Integer id;
-    @Singular private @Getter @Setter List<Food> ingredients;
-    @Singular private @Getter @Setter List<String> instructions;
-    @Singular private @Getter @Setter List<Tool> tools;
-    private @Getter @Setter String description;
-    private @Getter @Setter String name;
-    private @Getter @Setter int serves;
+    private @NonNull Integer id;
+    @Singular private List<Food> ingredients;
+    @Singular private List<String> instructions;
+    @Singular private List<Tool> tools;
+    private String description;
+    private String name;
+    private int serves;
 
     /**
      * Print a recipe
