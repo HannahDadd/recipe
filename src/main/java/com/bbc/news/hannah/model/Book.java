@@ -1,54 +1,24 @@
 package com.bbc.news.hannah.model;
 
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.Setter;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Builder
 public class Book {
-    int id;
-    String authorName;
-    String name;
-    List<Recipe> recipes;
+    private @NonNull @Getter Integer id;
+    private @Getter @Setter String authorName;
+    private @Getter @Setter String title;
+    private @Getter @Setter List<Recipe> recipes;
 
-    public Book(int id, String authorName, String title) {
-        this.id = id;
-        this.authorName = authorName;
-        this.name = title;
-        recipes = new ArrayList();
-    }
-
-    public void addRecipe(Recipe recipe){
+    /**
+     * Add recipe to books
+     */
+    public void addRecipe(Recipe recipe) {
         recipes.add(recipe);
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getAuthorName() {
-        return authorName;
-    }
-
-    public void setAuthorName(String authorName) {
-        this.authorName = authorName;
-    }
-
-    public List<Recipe> getRecipes() {
-        return recipes;
-    }
-
-    public void setRecipes(List<Recipe> recipes) {
-        this.recipes = recipes;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 }

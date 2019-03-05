@@ -5,22 +5,29 @@ import com.bbc.news.hannah.model.Food;
 import com.bbc.news.hannah.model.Recipe;
 import com.bbc.news.hannah.model.Tool;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
 
-        Food advocado = new Food(1,"advocado", false, "advocados", 1);
-        Food bread = new Food(2, "bread", false, "slice", 1);
-        Tool toaster = new Tool(1, "toaster");
+        int foodId = 0;
+        Food advocado = Food.builder().id(foodId).name("advocado").isLiquid(false).quantityUnit("avocados").quantity(1).build();
+        Food bread = Food.builder().id(foodId++).name("bread").isLiquid(false).quantityUnit("slice").quantity(1).build();
+        Tool toaster = Tool.builder().id(1).name("toaster").build();
 
-        Recipe recipe = new Recipe(1, "A pompsy brunch", 1, "advocado on toast");
-        recipe.addIngredient(advocado);
-        recipe.addIngredient(bread);
-        recipe.addTool(toaster);
-        recipe.addInstruction("Toast bread");
-        recipe.addInstruction("Chop advocado");
-        recipe.addInstruction("Place advocado on toast");
+        Recipe recipe = Recipe.builder()
+                .id(1)
+                .description("A pompsy brunch")
+                .serves(1)
+                .name("advocado on toast")
+                .tool(toaster)
+                .ingredient(bread)
+                .ingredient(advocado)
+                .instructions(new ArrayList(Arrays.asList("Toast bread", "Chop advocado", "Place advocado on toast")))
+                .build();
 
-        Book book = new Book(1, "Hannah", "Book the First");
+        Book book = Book.builder().id(1).authorName("Hannah").title("Book the First").recipes(new ArrayList()).build();
         book.addRecipe(recipe);
 
         System.out.println(book.getRecipes().get(0).getRecipe());
