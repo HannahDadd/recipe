@@ -2,7 +2,7 @@
 .idea
 out
 build
-gradle
+.DS_Store
 
 ### Java template
 # Compiled class file
@@ -96,5 +96,7 @@ fabric.properties
 
 # Editor-based Rest Client
 .idea/httpRequests
-.idea
 
+build.gradle
+src/main/resources/
+src/test/
