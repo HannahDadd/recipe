@@ -1,9 +1,7 @@
-.gradle
 .idea
-out
-build
 .DS_Store
 
+# Created by .ignore support plugin (hsz.mobi)
 ### Java template
 # Compiled class file
 *.class
@@ -96,7 +94,3 @@ fabric.properties
 
 # Editor-based Rest Client
 .idea/httpRequests
-
-build.gradle
-src/main/resources/
-src/test/
