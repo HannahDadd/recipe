@@ -8,11 +8,11 @@ import lombok.NonNull;
 import java.util.ArrayList;
 import java.util.List;
 
-@Builder
+@Builder(toBuilder = true)
 @Getter
 public class Recipe {
 
-    private @NonNull Integer id;
+    private Integer id;
     @Singular private List<Food> ingredients;
     @Singular private List<String> instructions;
     @Singular private List<Tool> tools;
