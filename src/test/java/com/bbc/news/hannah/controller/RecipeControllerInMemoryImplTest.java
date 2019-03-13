@@ -3,14 +3,12 @@ package com.bbc.news.hannah.controller;
 import com.bbc.news.hannah.model.Recipe;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.core.IsInstanceOf;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.hamcrest.core.IsEqual;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class RecipeControllerInMemoryImplTest {
     private RecipeControllerInMemoryImpl controller;
@@ -32,8 +30,8 @@ public class RecipeControllerInMemoryImplTest {
      */
     @Test
     public void getRecipeWithValidId() {
-        MatcherAssert.assertThat(controller.getRecipeById(0).getName(), IsEqual.equalTo("advocado on toast"));
-        MatcherAssert.assertThat(controller.getRecipeById(0), IsInstanceOf.instanceOf(Recipe.class));
+        Recipe result = controller.getRecipeById(0);
+        MatcherAssert.assertThat(result.getName(), IsEqual.equalTo("advocado on toast"));
     }
 
     @Test

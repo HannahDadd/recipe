@@ -28,7 +28,7 @@ public class RecipeControllerInMemoryImpl implements RecipeControllerInterface {
             return null;
         }
         id = id + 1;
-        Recipe recipeAdded = recipe.toBuilder().id(id).build();
+        Recipe recipeAdded = recipe.toBuilder().id(Long.valueOf(id)).build();
         recipes.put(id, recipeAdded);
         return recipeAdded;
     }

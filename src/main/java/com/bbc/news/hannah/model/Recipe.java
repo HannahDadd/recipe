@@ -3,8 +3,10 @@ package com.bbc.news.hannah.model;
 import lombok.Getter;
 import lombok.Builder;
 import lombok.Singular;
-import lombok.NonNull;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,13 +14,13 @@ import java.util.List;
 @Getter
 public class Recipe {
 
-    private Integer id;
-    @Singular private List<Food> ingredients;
-    @Singular private List<String> instructions;
-    @Singular private List<Tool> tools;
+    private Long id;
     private String description;
     private String name;
     private int serves;
+    @Singular private List<Food> ingredients;
+    @Singular private List<String> instructions;
+    @Singular private List<Tool> tools;
 
     /**
      * Print a recipe

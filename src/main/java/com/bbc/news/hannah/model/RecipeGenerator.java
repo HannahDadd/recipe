@@ -35,7 +35,7 @@ public class RecipeGenerator {
         Tool hob = Tool.builder().id(toolId++).name("hob").build();
         Tool spoon = Tool.builder().id(toolId++).name("spoon").build();
 
-        int lastRecipeId = 0;
+        long lastRecipeId = 0;
         Recipe advocadosOnToast = Recipe.builder()
                 .id(lastRecipeId)
                 .description("A pompsy brunch")
@@ -95,11 +95,11 @@ public class RecipeGenerator {
                 .ingredient(pasta)
                 .instructions(new ArrayList(Arrays.asList("Boil Pasta on hob for 10 minutes", "Stir in Tomoato Sauce with spoon")))
                 .build();
-        recipes.put(advocadosOnToast.getId(),advocadosOnToast);
-        recipes.put(pizza.getId(),pizza);
-        recipes.put(bananaBread.getId(),bananaBread);
-        recipes.put(cheesyPasta.getId(),cheesyPasta);
-        recipes.put(tomatoPasta.getId(),tomatoPasta);
+        recipes.put(advocadosOnToast.getId().intValue(), advocadosOnToast);
+        recipes.put(pizza.getId().intValue(), pizza);
+        recipes.put(bananaBread.getId().intValue(), bananaBread);
+        recipes.put(cheesyPasta.getId().intValue(), cheesyPasta);
+        recipes.put(tomatoPasta.getId().intValue(), tomatoPasta);
         return recipes;
     }
 }

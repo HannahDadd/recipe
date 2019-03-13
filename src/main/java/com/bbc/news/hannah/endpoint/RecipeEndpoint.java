@@ -1,8 +1,10 @@
 package com.bbc.news.hannah.endpoint;
 
 import com.bbc.news.hannah.controller.RecipeControllerInterface;
+import com.bbc.news.hannah.controller.RecipeRepositoy;
 import com.bbc.news.hannah.model.Recipe;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import javax.ws.rs.*;
@@ -15,15 +17,18 @@ import java.util.List;
 @Produces("application/json")
 public class RecipeEndpoint {
     private RecipeControllerInterface controller;
+    private RecipeRepositoy recipeRepositoy;
 
-    public RecipeEndpoint(RecipeControllerInterface controller) {
-        this.controller = controller;
+    public RecipeEndpoint(RecipeRepositoy recipeRepositoy) {
+        //this.controller = new RecipeControllerInterface();
+        this.recipeRepositoy = recipeRepositoy;
     }
 
     @GET
     @Path("/{id}")
     public Response getRecipeById(@PathParam("id") int id) {
-        Recipe recipe = controller.getRecipeById(id);
+        //Recipe recipe = controller.getRecipeById(id);
+        Recipe recipe = recipeRepositoy.getRecipeById(1);
         if(recipe == null) {
             return Response.status(404).build();
         }
